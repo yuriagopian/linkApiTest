@@ -4,6 +4,7 @@ const { apiBling } = require('../services/api')
 
 module.exports = {
     async generate(deals) {
+
         const orders = deals.map(async (deal) => {
             const xmlConverted = jsonToXml({
                 pedido: [
@@ -35,12 +36,19 @@ module.exports = {
                 `/pedido/json?apikey=${process.env.API_KEY_BLING}&xml=${xmlConverted}`
             );
 
-            const result = postOrder.data.retorno.pedidos[0];
+            const { pedido } = postOrder.data.retorno.pedidos[0];
 
-            // orders.valor = deal.value;
-            // orders.organizationName = deal.org_id.name;
+            pedido.value = deal.value;
+            delete pedido.codigos_rastreamento
+            delete pedido.volumes
+            pedido.organizationName = deal.org_id.name;
 
-            console.log(result)
+            return pedido
+        })
+
+        const todos = Promise.all(orders).then((values) => {
+            console.log(values)
         })
     }
+
 }
