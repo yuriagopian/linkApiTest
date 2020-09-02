@@ -1,0 +1,20 @@
+TO DO 
+
+● Criar uma integração entre as plataformas Pipedrive e Bling. 
+(A integração deve buscar as oportunidades com status igual a ganho no Pipedrive, 
+depois inseri-las como pedido no Bling).
+
+
+- enviar esse xml como post  para a api do bling
+
+● Criar uma collection no banco de dados MongoDB agregando as oportunidades inseridas no Bling por dia e valor total.
+
+● Criar endpoint para trazer os dados consolidados da collection do MongoDB.
+
+
+DONE 
+
+- pegar a oportunidade e transformar em xml criando um service para mapear essas oportunidades. 
+
+
+
