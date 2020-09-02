@@ -21,7 +21,8 @@ module.exports = {
                             {
                                 name: 'item',
                                 children: [
-                                    { name: 'codigo', text: deal.id },
+                                    // { name: 'codigo', text: deal.id },
+                                    { name: 'codigo', text: Math.random() * (1000 - 0) + 0 },
                                     { name: 'descricao', text: 'oportunidade' },
                                     { name: 'qtde', text: 1 },
                                     { name: 'vlr_unit', text: deal.value }
@@ -42,13 +43,13 @@ module.exports = {
             delete pedido.codigos_rastreamento;
             delete pedido.volumes;
             pedido.organizationName = deal.org_id.name;
-            pedido.wonTime =  deal.won_time; 
+            pedido.wonTime = deal.won_time;
 
             return pedido
         })
 
         const todos = Promise.all(orders).then((values) => {
-            return values 
+            return values
         })
 
         return todos
