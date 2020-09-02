@@ -9,9 +9,9 @@ module.exports = {
             )
             const deals = dealsWithStatusWon.data.data;
             // transformar oportunidades em xml 
-            const orders = createOrders.generate(deals)
-            //console.log(orders)
-            res.send(deals)
+            const orders = await createOrders.generate(deals)
+            console.log(orders)
+            res.send(orders)
 
         } catch (error) {
             res.send('erro')

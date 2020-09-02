@@ -39,16 +39,19 @@ module.exports = {
             const { pedido } = postOrder.data.retorno.pedidos[0];
 
             pedido.value = deal.value;
-            delete pedido.codigos_rastreamento
-            delete pedido.volumes
+            delete pedido.codigos_rastreamento;
+            delete pedido.volumes;
             pedido.organizationName = deal.org_id.name;
+            pedido.wonTime =  deal.won_time; 
 
             return pedido
         })
 
         const todos = Promise.all(orders).then((values) => {
-            console.log(values)
+            return values 
         })
+
+        return todos
     }
 
 }
