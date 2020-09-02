@@ -38,7 +38,7 @@ module.exports = {
 
             const { pedido } = postOrder.data.retorno.pedidos[0];
 
-            pedido.value = deal.value;
+            pedido.valueOrder = deal.value;
             delete pedido.codigos_rastreamento;
             delete pedido.volumes;
             pedido.organizationName = deal.org_id.name;
