@@ -12,7 +12,8 @@ module.exports = {
             // transformar oportunidades em xml 
             const orders = await createOrders.generate(deals)
             await dealService.createDeal(orders)
-
+            const aggregation = await dealService.aggregateOportunities(orders)
+            console.log(aggregation)
             res.send(orders)
 
         } catch (error) {
