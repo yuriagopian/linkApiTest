@@ -1,5 +1,6 @@
 const { apiPipedrive, apiBling } = require('../services/api');
 const createOrders = require('../services/createOrder');
+const dealService = require('../services/deal.service');
 
 module.exports = {
     async listOportunities(req, res) {
@@ -11,6 +12,9 @@ module.exports = {
             // transformar oportunidades em xml 
             const orders = await createOrders.generate(deals)
             console.log(orders)
+
+            await dealService.createDeal(orders)
+            
             res.send(orders)
 
         } catch (error) {
