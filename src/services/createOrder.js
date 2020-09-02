@@ -34,6 +34,13 @@ module.exports = {
             const postOrder = await apiBling.post(
                 `/pedido/json?apikey=${process.env.API_KEY_BLING}&xml=${xmlConverted}`
             );
+
+            const result = postOrder.data.retorno.pedidos[0];
+
+            // orders.valor = deal.value;
+            // orders.organizationName = deal.org_id.name;
+
+            console.log(result)
         })
     }
 }
