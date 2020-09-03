@@ -3,13 +3,13 @@ const DealModel = require('../models/deals')();
 module.exports = {
 
     async createDeal(orders) {
+        //console.log('service createDeals', orders)
         const insertDeal = await orders.map(async (order) => {
             await DealModel.create(order)
         }
         )
         return insertDeal
-    }
-    ,
+    },
 
     async aggregateOportunities() {
         const orders = await DealModel.aggregate([
@@ -27,6 +27,11 @@ module.exports = {
         ])
 
         return orders
+    },
+
+
+    async consolidado() {
+
     }
 }
 

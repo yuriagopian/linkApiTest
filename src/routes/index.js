@@ -8,6 +8,8 @@ router.get('/', (req, res) => {
     res.send('Me contrata linkapi !!!')
 })
 
+router.post('/oportunities', oportunitiesController.createOportunities);
+
 router.get('/oportunities', oportunitiesController.listOportunities);
 
 module.exports = router;

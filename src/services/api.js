@@ -6,12 +6,12 @@ const baseUrlBling = process.env.BASE_URL_BLING
 
 const apiPipedrive = axios.create({
     baseURL: baseUrlPipedrive,
-    timeout: 1000,
+    timeout: 5000,
 });
 
 const apiBling = axios.create({
     baseURL: baseUrlBling,
-    timeout: 1000,
+    timeout: 5000,
 });
 
 
