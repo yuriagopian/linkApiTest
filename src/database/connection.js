@@ -2,7 +2,8 @@ const db = require('mongoose');
 require('dotenv').config()
 
 db.connect(process.env.DB_STRING, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }).then((data) => {
     console.log('Conexao efetuada com o banco', data.connection.readyState)
 })

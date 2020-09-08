@@ -23,16 +23,19 @@ module.exports = {
                     date: { $dateToString: { format: '%d/%m/%Y', date: "$wonTime" } },
                 }
             },
-            { $group: { _id: "$date", total: { $sum: "$valueOrder" } } }
+            { $group: { _id: "$date", valorTotal: { $sum: "$valueOrder" }, qtde: { $sum: 1 } } },
+            {
+                $project: {
+                    _id: false,
+                    data: "$_id",
+                    valorTotal: "$valorTotal",
+                    qtde: "$qtde"
+
+                }
+            },
         ])
 
         return orders
     },
-
-
-    async consolidado() {
-
-    }
 }
-
 

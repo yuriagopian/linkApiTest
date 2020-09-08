@@ -31,15 +31,6 @@ module.exports = function () {
 
     DealsSchema.plugin(mongoosePaginate)
 
-    DealsSchema.statics.save = function (obj) {
-        let schema = new schemaModel()
-        for (var _prop in obj) {
-            schema[_prop] = obj[_prop]
-        }
-        return schema.save()
-    }
-
-
     let schemaModel = mongoose.model('deals_model', DealsSchema)
 
     return schemaModel

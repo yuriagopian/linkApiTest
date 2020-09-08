@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "apidoc": {
+    "title": "Linkapi Integration",
+    "url": "",
+    "version": "0.0.1",
+    "order": [
+      "Error",
+      "Define",
+      "PostTitleAndError",
+      "PostError"
+    ]
+  },
   "scripts": {
     "start": "nodemon ./src/server.js",
     "devi": "nodemon --inspect ./src/server.js",
@@ -11,6 +22,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apidoc": "^0.25.0",
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
